@@ -1,50 +1,48 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
 
 const supermarketSchema = new Schema({
   name: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
   },
   location: {
     address: {
       type: String,
-      required: true
+      required: true,
     },
     city: {
       type: String,
-      required: true
+      required: true,
     },
-    state: {
+    province: {
       type: String,
-      required: true
-    },
-    country: {
-      type: String,
-      required: true
+      required: true,
     },
     coordinates: {
       type: [Number],
-      index: '2dsphere' // Indexado para búsquedas geoespaciales
-    }
+      index: "2dsphere", // Indexado para búsquedas geoespaciales
+    },
   },
   openingHours: {
     type: Map,
     of: {
       from: String,
-      to: String
-    }
+      to: String,
+    },
   },
   contact: {
     phone: String,
     email: String,
-    website: String
+    website: String,
   },
   createdAt: {
     type: Date,
-    default: Date.now
-  }
+    default: Date.now,
+  },
 });
 
-module.exports = model('Supermarket', supermarketSchema);
+const Supermarket = model("Supermarket", supermarketSchema);
+
+module.exports = Supermarket;
