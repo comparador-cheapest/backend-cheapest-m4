@@ -14,4 +14,18 @@ router.get("/", async (req, res, next) => {
 });
 
 
+// @desc    Get one products
+// @route   GET /dress/:productsId
+// @access  Public
+router.get("/:productsId", async (req, res, next) => {
+    const { productsId } = req.params;
+    try {
+      const dress = await Products.findById(productsId)
+      res.status(200).json(dress);
+    } catch (error) {
+      next(error);
+    }
+  });
+
+
 module.exports = router;
