@@ -7,7 +7,7 @@ const articleSchema = new Schema(
     },
     market: {
       type: Schema.Types.ObjectId,
-      ref: 'Supermarket'
+      ref: 'SuperMarket'
     },
     product: {
       type: Schema.Types.ObjectId,
