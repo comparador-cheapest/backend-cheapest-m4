@@ -1,17 +1,16 @@
 const router = require("express").Router();
-const Products = require("../models/Products");
-const Supermarket = require("../models/superMartket");
+const SuperMarket = require("../models/superMartket");
+const Article = require("../models/Article.js")
 
-// @desc    Get all products
-// @route   GET /dress
+// @desc    Displays all articles
+// @route   GET /articles
 // @access  Public
-router.get("/", async (req, res, next) => {
+router.get('/', async function (req, res, next) {
   try {
-    const products = await Products.find().populate("supermarket")
-    console.log(products)
-    res.status(200).json(products);
+      const articles = await Article.find({}).populate('product').populate('SuperMarket');
+      res.render('articles', {articles});
   } catch (error) {
-    next(error);
+      next(error)
   }
 });
 
