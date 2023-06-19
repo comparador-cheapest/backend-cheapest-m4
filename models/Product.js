@@ -9,18 +9,9 @@ const productSchema = new Schema(
     },
     brand: String,
     category: String,
-    price: {
-      type: Number,
-      required: true,
-    },
     unit: {
       type: String,
       default: "unit",
-    },
-    supermarket: {
-      type: Schema.Types.ObjectId,
-      ref: "Supermarket",
-      required: true,
     },
     image: {
       type: String,

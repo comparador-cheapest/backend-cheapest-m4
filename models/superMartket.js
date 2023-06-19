@@ -41,6 +41,10 @@ const supermarketSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  logo: {
+    type: String,
+    default: '../images/market-default-edit.png'
+  },
 });
 
 const Supermarket = model("Supermarket", supermarketSchema);
