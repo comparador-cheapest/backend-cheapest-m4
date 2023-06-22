@@ -18,14 +18,15 @@ router.get('/', async function (req, res, next) {
 });
 
 
-// @desc    Get one products
-// @route   GET /dress/:productsId
+// @desc    Get one article
+// @route   GET /articles/:articlesId
 // @access  Public
-router.get("/:productsId", async (req, res, next) => {
-    const { productsId } = req.params;
+router.get("/:articlesId", async (req, res, next) => {
+  console.log("ruta")
+    const { articlesId } = req.params;
     try {
-      const dress = await Product.findById(productsId)
-      res.status(200).json(dress);
+      const article = await Article.findById(articlesId).populate('product').populate('supermarket')
+      res.status(200).json(article);
     } catch (error) {
       next(error);
     }
