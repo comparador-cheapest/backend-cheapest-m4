@@ -41,12 +41,12 @@ const supermarketSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  logo: {
-    type: String,
-    default: '../images/market-default-edit.png'
-  },
+  // logo: {
+  //   type: String,
+  //   default: '../images/market-default-edit.png'
+  // }
 });
 
-const Supermarket = model("Supermarket", supermarketSchema);
+const SuperMarket = model("SuperMarket", supermarketSchema);
 
-module.exports = Supermarket;
+module.exports = SuperMarket;
